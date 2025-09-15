@@ -1,0 +1,73 @@
+:root{
+  --orange: #c5662b;      /* marker + title underline */
+  --label-gray: #7a7a7a;  /* caption text */
+  --line: #3f3f3f;        /* elbow lines */
+}
+
+* { box-sizing: border-box; }
+body{
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: #111;
+}
+
+.map-wrap{
+  position: relative;
+  max-width: 1849px;
+  margin: 28px auto;
+  padding: 0 16px;
+}
+
+/* Your country SVG */
+.map-svg{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Overlay SVG for elbow lines + markers: same viewBox as the map */
+.overlay{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Absolutely positioned labels */
+.labels{
+  position: absolute;
+  inset: 0;
+}
+
+/* Marker (orange dot) */
+.marker{ fill: var(--orange); }
+
+/* Label styling (title + city) */
+.label{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  line-height: 1.1;
+  text-align: left;
+  pointer-events: auto;
+}
+.label .title{
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--orange);
+  display: inline-block;
+  border-bottom: 1px solid var(--orange);
+  padding-bottom: 1px;
+}
+.label .meta{
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--label-gray);
+}
+
+@media (max-width: 560px){
+  .label .title{ font-size: 14px; }
+  .label .meta { font-size: 11px; }
+}
